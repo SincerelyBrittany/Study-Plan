@@ -76,6 +76,15 @@
       background: #e5e7eb;
       color: #111827;
     }
+    input[type="date"] {
+      border: 1px solid #d1d5db;
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: 14px;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #111827;
+      background: #ffffff;
+    }
     .legend {
       display: flex;
       flex-wrap: wrap;
@@ -244,6 +253,8 @@
     <div class="toolbar">
       <button id="resetBtn" type="button">Reset Progress</button>
       <button id="jumpTodayBtn" class="secondary" type="button">Jump to Start Week</button>
+      <input type="date" id="startDateInput" />
+      <button id="updateStartBtn" class="secondary" type="button">Update Start Date</button>
     </div>
 
     <div class="legend">
@@ -296,7 +307,18 @@
       { n: 23, title: "Congratulations - AWS Certified Cloud Practitioner", minutes: 9, tag: "exam" }
     ];
 
-    const START = new Date(2026, 3, 7);
+    const STORAGE_START_KEY = "awsRoadmapStartDate";
+
+    function getStartDate() {
+      const savedStart = localStorage.getItem(STORAGE_START_KEY);
+      if (savedStart) return new Date(savedStart);
+
+      const defaultDate = new Date(2026, 3, 7);
+      localStorage.setItem(STORAGE_START_KEY, defaultDate.toISOString());
+      return defaultDate;
+    }
+
+    let START = getStartDate();
     const STUDY_GROUP_DAYS = [2, 4]; // Tue, Thu
     const STORAGE_KEY = "awsRoadmapCompletedDays";
 
@@ -308,6 +330,10 @@
     const pfillEl = document.getElementById("pfill");
     const resetBtn = document.getElementById("resetBtn");
     const jumpTodayBtn = document.getElementById("jumpTodayBtn");
+    const startInput = document.getElementById("startDateInput");
+    const updateStartBtn = document.getElementById("updateStartBtn");
+
+    startInput.value = START.toISOString().split("T")[0];
 
     const saved = localStorage.getItem(STORAGE_KEY);
     const completedDays = new Set(saved ? JSON.parse(saved) : []);
@@ -341,34 +367,38 @@
 
     const TOTAL_STUDY_DAYS = expandedDays.length;
 
-    const daySlots = [];
-    let dayPlanIndex = 0;
-    let offset = 0;
+    let daySlots = [];
 
-    while (daySlots.length < TOTAL_STUDY_DAYS && dayPlanIndex < expandedDays.length) {
-      const date = new Date(
-        START.getFullYear(),
-        START.getMonth(),
-        START.getDate() + offset
-      );
-      offset++;
+    function buildDaySlots() {
+      daySlots = [];
+      let dayPlanIndex = 0;
+      let offset = 0;
 
-      const jsDay = date.getDay();
-      if (jsDay === 0) continue;
+      while (daySlots.length < TOTAL_STUDY_DAYS && dayPlanIndex < expandedDays.length) {
+        const date = new Date(
+          START.getFullYear(),
+          START.getMonth(),
+          START.getDate() + offset
+        );
+        offset++;
 
-      const plan = expandedDays[dayPlanIndex];
-      const isSessionDay = STUDY_GROUP_DAYS.includes(jsDay);
+        const jsDay = date.getDay();
+        if (jsDay === 0) continue;
 
-      daySlots.push({
-        id: `aws-day-${daySlots.length + 1}`,
-        date,
-        jsDay,
-        dayName: dayNames[jsDay],
-        plan,
-        isSessionDay
-      });
+        const plan = expandedDays[dayPlanIndex];
+        const isSessionDay = STUDY_GROUP_DAYS.includes(jsDay);
 
-      dayPlanIndex++;
+        daySlots.push({
+          id: `aws-day-${daySlots.length + 1}`,
+          date,
+          jsDay,
+          dayName: dayNames[jsDay],
+          plan,
+          isSessionDay
+        });
+
+        dayPlanIndex++;
+      }
     }
 
     function saveProgress() {
@@ -482,6 +512,24 @@
       `).join("");
     }
 
+    updateStartBtn.addEventListener("click", () => {
+      if (!startInput.value) return;
+
+      const newDate = new Date(startInput.value + "T00:00:00");
+      const confirmed = window.confirm("Update AWS start date and reset progress?");
+      if (!confirmed) return;
+
+      localStorage.setItem(STORAGE_START_KEY, newDate.toISOString());
+      START = newDate;
+
+      completedDays.clear();
+      localStorage.removeItem(STORAGE_KEY);
+
+      buildDaySlots();
+      renderCalendar();
+      updateProgress();
+    });
+
     resetBtn.addEventListener("click", () => {
       const confirmed = window.confirm("Reset all completed AWS study days?");
       if (confirmed) resetProgress();
@@ -494,6 +542,7 @@
 
     window.toggleDay = toggleDay;
 
+    buildDaySlots();
     renderCalendar();
     updateProgress();
   </script>
