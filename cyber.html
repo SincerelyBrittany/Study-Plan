@@ -440,9 +440,292 @@
 
   <script>
     const START = new Date(2026, 5, 10);
-    const STUDY_GROUP_DAYS = [2, 4];
+    const STUDY_GROUP_DAYS = [0];
     const STORAGE_KEY = "professorMesserSecurityRoadmapCompletedDays";
-    const dayPlans = [{"day": 1, "total_seconds": 2651, "video_count": 5, "start_num": 28, "end_num": 32, "summary": "How to Pass Your SY0-701 Security+ Exam \u2192 Authentication, Authorization, and Accounting", "details": ["28. How to Pass Your SY0-701 Security+ Exam (10:06)", "29. Security Controls (11:48)", "30. The CIA Triad (5:17)", "31. Non-repudiation (7:57)", "32. Authentication, Authorization, and Accounting (9:03)"], "tag": "intro"}, {"day": 2, "total_seconds": 2457, "video_count": 5, "start_num": 33, "end_num": 37, "summary": "Gap Analysis \u2192 Change Management", "details": ["33. Gap Analysis (6:44)", "34. Zero Trust (10:04)", "35. Physical Security (8:17)", "36. Deception and Disruption (4:30)", "37. Change Management (11:22)"], "tag": "concepts"}, {"day": 3, "total_seconds": 2422, "video_count": 5, "start_num": 38, "end_num": 42, "summary": "Technical Change Management \u2192 Encryption Technologies", "details": ["38. Technical Change Management (10:54)", "39. Public Key Infrastructure (9:08)", "40. Encrypting Data (9:48)", "41. Key Exchange (3:39)", "42. Encryption Technologies (6:53)"], "tag": "concepts"}, {"day": 4, "total_seconds": 2124, "video_count": 4, "start_num": 43, "end_num": 46, "summary": "Obfuscation \u2192 Certificates", "details": ["43. Obfuscation (8:00)", "44. Hashing and Digital Signatures (10:24)", "45. Blockchain Technology (2:22)", "46. Certificates (14:38)"], "tag": "crypto"}, {"day": 5, "total_seconds": 2653, "video_count": 5, "start_num": 47, "end_num": 51, "summary": "Threat Actors \u2192 Watering Hole Attacks", "details": ["47. Threat Actors (10:23)", "48. Common Threat Vectors (17:14)", "49. Phishing (6:32)", "50. Impersonation (5:52)", "51. Watering Hole Attacks (4:12)"], "tag": "threats"}, {"day": 6, "total_seconds": 2687, "video_count": 9, "start_num": 52, "end_num": 60, "summary": "Other Social Engineering Attacks \u2192 Hardware Vulnerabilities", "details": ["52. Other Social Engineering Attacks (3:29)", "53. Memory Injections (2:39)", "54. Buffer Overflows (3:37)", "55. Race Conditions (4:58)", "56. Malicious Updates (5:45)", "57. Operating System Vulnerabilities (4:09)", "58. SQL Injection (5:09)", "59. Cross-site Scripting (8:34)", "60. Hardware Vulnerabilities (6:27)"], "tag": "threats"}, {"day": 7, "total_seconds": 2661, "video_count": 8, "start_num": 61, "end_num": 68, "summary": "Virtualization Vulnerabilities \u2192 Viruses and Worms", "details": ["61. Virtualization Vulnerabilities (5:29)", "62. Cloud-specific Vulnerabilities (4:06)", "63. Supply Chain Vulnerabilities (9:12)", "64. Misconfiguration Vulnerabilities (7:09)", "65. Mobile Device Vulnerabilities (3:23)", "66. Zero-day Vulnerabilities (3:02)", "67. An Overview of Malware (6:06)", "68. Viruses and Worms (5:54)"], "tag": "threats"}, {"day": 8, "total_seconds": 2666, "video_count": 7, "start_num": 69, "end_num": 75, "summary": "Spyware and Bloatware \u2192 On-path Attacks", "details": ["69. Spyware and Bloatware (4:21)", "70. Other Malware Types (7:32)", "71. Physical Attacks (4:04)", "72. Denial of Service (6:07)", "73. DNS Attacks (8:57)", "74. Wireless Attacks (7:55)", "75. On-path Attacks (5:30)"], "tag": "threats"}, {"day": 9, "total_seconds": 2279, "video_count": 5, "start_num": 76, "end_num": 80, "summary": "Replay Attacks \u2192 Password Attacks", "details": ["76. Replay Attacks (5:45)", "77. Malicious Code (3:40)", "78. Application Attacks (11:48)", "79. Cryptographic Attacks (9:31)", "80. Password Attacks (7:15)"], "tag": "threats"}, {"day": 10, "total_seconds": 2167, "video_count": 4, "start_num": 81, "end_num": 84, "summary": "Indicators of Compromise \u2192 Hardening Techniques", "details": ["81. Indicators of Compromise (10:59)", "82. Segmentation and Access Control (6:06)", "83. Mitigation Techniques (6:51)", "84. Hardening Techniques (12:11)"], "tag": "threats"}, {"day": 11, "total_seconds": 1876, "video_count": 3, "start_num": 85, "end_num": 87, "summary": "Cloud Infrastructures \u2192 Other Infrastructure Concepts", "details": ["85. Cloud Infrastructures (9:56)", "86. Network Infrastructure Concepts (6:56)", "87. Other Infrastructure Concepts (14:24)"], "tag": "architecture"}, {"day": 12, "total_seconds": 2442, "video_count": 5, "start_num": 88, "end_num": 92, "summary": "Infrastructure Considerations \u2192 Port Security", "details": ["88. Infrastructure Considerations (13:48)", "89. Secure Infrastructures (5:54)", "90. Intrusion Prevention (5:14)", "91. Network Appliances (11:56)", "92. Port Security (3:50)"], "tag": "architecture"}, {"day": 13, "total_seconds": 2664, "video_count": 5, "start_num": 93, "end_num": 97, "summary": "Firewall Types \u2192 Protecting Data", "details": ["93. Firewall Types (8:00)", "94. Secure Communication (9:55)", "95. Data Types and Classifications (5:54)", "96. States of Data (6:07)", "97. Protecting Data (14:28)"], "tag": "architecture"}, {"day": 14, "total_seconds": 2362, "video_count": 6, "start_num": 98, "end_num": 103, "summary": "Resiliency \u2192 Secure Baselines", "details": ["98. Resiliency (9:42)", "99. Capacity Planning (3:53)", "100. Recovery Testing (5:18)", "101. Backups (12:16)", "102. Power Resiliency (4:02)", "103. Secure Baselines (4:11)"], "tag": "data"}, {"day": 15, "total_seconds": 2309, "video_count": 4, "start_num": 104, "end_num": 107, "summary": "Hardening Targets \u2192 Application Security", "details": ["104. Hardening Targets (10:11)", "105. Securing Wireless and Mobile (8:58)", "106. Wireless Security Settings (10:54)", "107. Application Security (8:26)"], "tag": "operations"}, {"day": 16, "total_seconds": 2278, "video_count": 5, "start_num": 108, "end_num": 112, "summary": "Asset Management \u2192 Analyzing Vulnerabilities", "details": ["108. Asset Management (8:37)", "109. Vulnerability Scanning (7:45)", "110. Threat Intelligence (4:46)", "111. Penetration Testing (6:21)", "112. Analyzing Vulnerabilities (10:29)"], "tag": "operations"}, {"day": 17, "total_seconds": 2689, "video_count": 4, "start_num": 113, "end_num": 116, "summary": "Vulnerability Remediation \u2192 Firewalls", "details": ["113. Vulnerability Remediation (8:45)", "114. Security Monitoring (10:27)", "115. Security Tools (14:06)", "116. Firewalls (11:31)"], "tag": "operations"}, {"day": 18, "total_seconds": 2524, "video_count": 6, "start_num": 117, "end_num": 122, "summary": "Web Filtering \u2192 Endpoint Security", "details": ["117. Web Filtering (10:00)", "118. Operating System Security (3:22)", "119. Secure Protocols (4:47)", "120. Email Security (7:05)", "121. Monitoring Data (7:25)", "122. Endpoint Security (9:25)"], "tag": "operations"}, {"day": 19, "total_seconds": 2386, "video_count": 5, "start_num": 123, "end_num": 127, "summary": "Identity and Access Management \u2192 Scripting and Automation", "details": ["123. Identity and Access Management (12:46)", "124. Access Controls (7:49)", "125. Multifactor Authentication (4:29)", "126. Password Security (6:22)", "127. Scripting and Automation (8:20)"], "tag": "operations"}, {"day": 20, "total_seconds": 2379, "video_count": 4, "start_num": 128, "end_num": 131, "summary": "Incident Response \u2192 Log Data", "details": ["128. Incident Response (9:14)", "129. Incident Planning (6:50)", "130. Digital Forensics (9:54)", "131. Log Data (13:41)"], "tag": "incident"}, {"day": 21, "total_seconds": 2621, "video_count": 7, "start_num": 132, "end_num": 138, "summary": "Security Policies \u2192 Risk Analysis", "details": ["132. Security Policies (11:02)", "133. Security Standards (5:36)", "134. Security Procedures (7:02)", "135. Security Considerations (4:51)", "136. Data Roles and Responsibilities (2:27)", "137. Risk Management (3:30)", "138. Risk Analysis (9:13)"], "tag": "governance"}, {"day": 22, "total_seconds": 2687, "video_count": 8, "start_num": 139, "end_num": 146, "summary": "Risk Management Strategies \u2192 Penetration Tests", "details": ["139. Risk Management Strategies (3:12)", "140. Business Impact Analysis (2:55)", "141. Third-party Risk Assessment (11:36)", "142. Agreement Types (5:19)", "143. Compliance (8:06)", "144. Privacy (5:21)", "145. Audits and Assessments (2:49)", "146. Penetration Tests (5:29)"], "tag": "governance"}, {"day": 23, "total_seconds": 676, "video_count": 2, "start_num": 147, "end_num": 148, "summary": "Security Awareness \u2192 User Training", "details": ["147. Security Awareness (6:45)", "148. User Training (4:31)"], "tag": "governance"}];
+    const dayPlans = [
+      {
+        day: 1, total_seconds: 2651, video_count: 5, start_num: 28, end_num: 32,
+        summary: "How to Pass Your SY0-701 Security+ Exam → Authentication, Authorization, and Accounting",
+        details: [
+          "28. How to Pass Your SY0-701 Security+ Exam (10:06)",
+          "29. Security Controls (11:48)",
+          "30. The CIA Triad (5:17)",
+          "31. Non-repudiation (7:57)",
+          "32. Authentication, Authorization, and Accounting (9:03)",
+        ],
+        tag: "intro",
+      },
+      {
+        day: 2, total_seconds: 2457, video_count: 5, start_num: 33, end_num: 37,
+        summary: "Gap Analysis → Change Management",
+        details: [
+          "33. Gap Analysis (6:44)",
+          "34. Zero Trust (10:04)",
+          "35. Physical Security (8:17)",
+          "36. Deception and Disruption (4:30)",
+          "37. Change Management (11:22)",
+        ],
+        tag: "concepts",
+      },
+      {
+        day: 3, total_seconds: 2422, video_count: 5, start_num: 38, end_num: 42,
+        summary: "Technical Change Management → Encryption Technologies",
+        details: [
+          "38. Technical Change Management (10:54)",
+          "39. Public Key Infrastructure (9:08)",
+          "40. Encrypting Data (9:48)",
+          "41. Key Exchange (3:39)",
+          "42. Encryption Technologies (6:53)",
+        ],
+        tag: "concepts",
+      },
+      {
+        day: 4, total_seconds: 2124, video_count: 4, start_num: 43, end_num: 46,
+        summary: "Obfuscation → Certificates",
+        details: [
+          "43. Obfuscation (8:00)",
+          "44. Hashing and Digital Signatures (10:24)",
+          "45. Blockchain Technology (2:22)",
+          "46. Certificates (14:38)",
+        ],
+        tag: "crypto",
+      },
+      {
+        day: 5, total_seconds: 2653, video_count: 5, start_num: 47, end_num: 51,
+        summary: "Threat Actors → Watering Hole Attacks",
+        details: [
+          "47. Threat Actors (10:23)",
+          "48. Common Threat Vectors (17:14)",
+          "49. Phishing (6:32)",
+          "50. Impersonation (5:52)",
+          "51. Watering Hole Attacks (4:12)",
+        ],
+        tag: "threats",
+      },
+      {
+        day: 6, total_seconds: 2687, video_count: 9, start_num: 52, end_num: 60,
+        summary: "Other Social Engineering Attacks → Hardware Vulnerabilities",
+        details: [
+          "52. Other Social Engineering Attacks (3:29)",
+          "53. Memory Injections (2:39)",
+          "54. Buffer Overflows (3:37)",
+          "55. Race Conditions (4:58)",
+          "56. Malicious Updates (5:45)",
+          "57. Operating System Vulnerabilities (4:09)",
+          "58. SQL Injection (5:09)",
+          "59. Cross-site Scripting (8:34)",
+          "60. Hardware Vulnerabilities (6:27)",
+        ],
+        tag: "threats",
+      },
+      {
+        day: 7, total_seconds: 2661, video_count: 8, start_num: 61, end_num: 68,
+        summary: "Virtualization Vulnerabilities → Viruses and Worms",
+        details: [
+          "61. Virtualization Vulnerabilities (5:29)",
+          "62. Cloud-specific Vulnerabilities (4:06)",
+          "63. Supply Chain Vulnerabilities (9:12)",
+          "64. Misconfiguration Vulnerabilities (7:09)",
+          "65. Mobile Device Vulnerabilities (3:23)",
+          "66. Zero-day Vulnerabilities (3:02)",
+          "67. An Overview of Malware (6:06)",
+          "68. Viruses and Worms (5:54)",
+        ],
+        tag: "threats",
+      },
+      {
+        day: 8, total_seconds: 2666, video_count: 7, start_num: 69, end_num: 75,
+        summary: "Spyware and Bloatware → On-path Attacks",
+        details: [
+          "69. Spyware and Bloatware (4:21)",
+          "70. Other Malware Types (7:32)",
+          "71. Physical Attacks (4:04)",
+          "72. Denial of Service (6:07)",
+          "73. DNS Attacks (8:57)",
+          "74. Wireless Attacks (7:55)",
+          "75. On-path Attacks (5:30)",
+        ],
+        tag: "threats",
+      },
+      {
+        day: 9, total_seconds: 2279, video_count: 5, start_num: 76, end_num: 80,
+        summary: "Replay Attacks → Password Attacks",
+        details: [
+          "76. Replay Attacks (5:45)",
+          "77. Malicious Code (3:40)",
+          "78. Application Attacks (11:48)",
+          "79. Cryptographic Attacks (9:31)",
+          "80. Password Attacks (7:15)",
+        ],
+        tag: "threats",
+      },
+      {
+        day: 10, total_seconds: 2167, video_count: 4, start_num: 81, end_num: 84,
+        summary: "Indicators of Compromise → Hardening Techniques",
+        details: [
+          "81. Indicators of Compromise (10:59)",
+          "82. Segmentation and Access Control (6:06)",
+          "83. Mitigation Techniques (6:51)",
+          "84. Hardening Techniques (12:11)",
+        ],
+        tag: "threats",
+      },
+      {
+        day: 11, total_seconds: 1876, video_count: 3, start_num: 85, end_num: 87,
+        summary: "Cloud Infrastructures → Other Infrastructure Concepts",
+        details: [
+          "85. Cloud Infrastructures (9:56)",
+          "86. Network Infrastructure Concepts (6:56)",
+          "87. Other Infrastructure Concepts (14:24)",
+        ],
+        tag: "architecture",
+      },
+      {
+        day: 12, total_seconds: 2442, video_count: 5, start_num: 88, end_num: 92,
+        summary: "Infrastructure Considerations → Port Security",
+        details: [
+          "88. Infrastructure Considerations (13:48)",
+          "89. Secure Infrastructures (5:54)",
+          "90. Intrusion Prevention (5:14)",
+          "91. Network Appliances (11:56)",
+          "92. Port Security (3:50)",
+        ],
+        tag: "architecture",
+      },
+      {
+        day: 13, total_seconds: 2664, video_count: 5, start_num: 93, end_num: 97,
+        summary: "Firewall Types → Protecting Data",
+        details: [
+          "93. Firewall Types (8:00)",
+          "94. Secure Communication (9:55)",
+          "95. Data Types and Classifications (5:54)",
+          "96. States of Data (6:07)",
+          "97. Protecting Data (14:28)",
+        ],
+        tag: "architecture",
+      },
+      {
+        day: 14, total_seconds: 2362, video_count: 6, start_num: 98, end_num: 103,
+        summary: "Resiliency → Secure Baselines",
+        details: [
+          "98. Resiliency (9:42)",
+          "99. Capacity Planning (3:53)",
+          "100. Recovery Testing (5:18)",
+          "101. Backups (12:16)",
+          "102. Power Resiliency (4:02)",
+          "103. Secure Baselines (4:11)",
+        ],
+        tag: "data",
+      },
+      {
+        day: 15, total_seconds: 2309, video_count: 4, start_num: 104, end_num: 107,
+        summary: "Hardening Targets → Application Security",
+        details: [
+          "104. Hardening Targets (10:11)",
+          "105. Securing Wireless and Mobile (8:58)",
+          "106. Wireless Security Settings (10:54)",
+          "107. Application Security (8:26)",
+        ],
+        tag: "operations",
+      },
+      {
+        day: 16, total_seconds: 2278, video_count: 5, start_num: 108, end_num: 112,
+        summary: "Asset Management → Analyzing Vulnerabilities",
+        details: [
+          "108. Asset Management (8:37)",
+          "109. Vulnerability Scanning (7:45)",
+          "110. Threat Intelligence (4:46)",
+          "111. Penetration Testing (6:21)",
+          "112. Analyzing Vulnerabilities (10:29)",
+        ],
+        tag: "operations",
+      },
+      {
+        day: 17, total_seconds: 2689, video_count: 4, start_num: 113, end_num: 116,
+        summary: "Vulnerability Remediation → Firewalls",
+        details: [
+          "113. Vulnerability Remediation (8:45)",
+          "114. Security Monitoring (10:27)",
+          "115. Security Tools (14:06)",
+          "116. Firewalls (11:31)",
+        ],
+        tag: "operations",
+      },
+      {
+        day: 18, total_seconds: 2524, video_count: 6, start_num: 117, end_num: 122,
+        summary: "Web Filtering → Endpoint Security",
+        details: [
+          "117. Web Filtering (10:00)",
+          "118. Operating System Security (3:22)",
+          "119. Secure Protocols (4:47)",
+          "120. Email Security (7:05)",
+          "121. Monitoring Data (7:25)",
+          "122. Endpoint Security (9:25)",
+        ],
+        tag: "operations",
+      },
+      {
+        day: 19, total_seconds: 2386, video_count: 5, start_num: 123, end_num: 127,
+        summary: "Identity and Access Management → Scripting and Automation",
+        details: [
+          "123. Identity and Access Management (12:46)",
+          "124. Access Controls (7:49)",
+          "125. Multifactor Authentication (4:29)",
+          "126. Password Security (6:22)",
+          "127. Scripting and Automation (8:20)",
+        ],
+        tag: "operations",
+      },
+      {
+        day: 20, total_seconds: 2379, video_count: 4, start_num: 128, end_num: 131,
+        summary: "Incident Response → Log Data",
+        details: [
+          "128. Incident Response (9:14)",
+          "129. Incident Planning (6:50)",
+          "130. Digital Forensics (9:54)",
+          "131. Log Data (13:41)",
+        ],
+        tag: "incident",
+      },
+      {
+        day: 21, total_seconds: 2621, video_count: 7, start_num: 132, end_num: 138,
+        summary: "Security Policies → Risk Analysis",
+        details: [
+          "132. Security Policies (11:02)",
+          "133. Security Standards (5:36)",
+          "134. Security Procedures (7:02)",
+          "135. Security Considerations (4:51)",
+          "136. Data Roles and Responsibilities (2:27)",
+          "137. Risk Management (3:30)",
+          "138. Risk Analysis (9:13)",
+        ],
+        tag: "governance",
+      },
+      {
+        day: 22, total_seconds: 2687, video_count: 8, start_num: 139, end_num: 146,
+        summary: "Risk Management Strategies → Penetration Tests",
+        details: [
+          "139. Risk Management Strategies (3:12)",
+          "140. Business Impact Analysis (2:55)",
+          "141. Third-party Risk Assessment (11:36)",
+          "142. Agreement Types (5:19)",
+          "143. Compliance (8:06)",
+          "144. Privacy (5:21)",
+          "145. Audits and Assessments (2:49)",
+          "146. Penetration Tests (5:29)",
+        ],
+        tag: "governance",
+      },
+      {
+        day: 23, total_seconds: 676, video_count: 2, start_num: 147, end_num: 148,
+        summary: "Security Awareness → User Training",
+        details: [
+          "147. Security Awareness (6:45)",
+          "148. User Training (4:31)",
+        ],
+        tag: "governance",
+      },
+    ];
 
     const dayNames = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
     const monthNames = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
