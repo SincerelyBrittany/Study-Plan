@@ -313,7 +313,7 @@
       const savedStart = localStorage.getItem(STORAGE_START_KEY);
       if (savedStart) return new Date(savedStart);
 
-      const defaultDate = new Date(2026, 3, 7);
+      const defaultDate = new Date(2026, 3, 8);
       localStorage.setItem(STORAGE_START_KEY, defaultDate.toISOString());
       return defaultDate;
     }
