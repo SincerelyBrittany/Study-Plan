@@ -6,10 +6,7 @@
   <title>Professor Messer Security+ Roadmap</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -20,6 +17,7 @@
       min-height: 100vh;
     }
 
+    /* ── Hero header ── */
     .hero {
       background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f4c3a 100%);
       padding: 36px 20px 48px;
@@ -27,7 +25,6 @@
       position: relative;
       overflow: hidden;
     }
-
     .hero::before {
       content: '';
       position: absolute;
@@ -37,14 +34,12 @@
         radial-gradient(ellipse at 80% 20%, rgba(59, 130, 246, 0.08) 0%, transparent 50%);
       pointer-events: none;
     }
-
     .hero-icon {
       font-size: 40px;
       margin-bottom: 12px;
       display: block;
       filter: drop-shadow(0 0 12px rgba(29, 158, 117, 0.6));
     }
-
     .hero h1 {
       font-size: 28px;
       font-weight: 800;
@@ -54,15 +49,13 @@
       margin-bottom: 10px;
       position: relative;
     }
-
     .hero h1 span {
       background: linear-gradient(90deg, #1D9E75, #34d399);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
-
-    .hero h2 a {
+    h2 a{
       font-size: 28px;
       text-decoration: none;
       font-weight: 800;
@@ -72,7 +65,6 @@
       margin-bottom: 10px;
       position: relative;
     }
-
     .hero p {
       font-size: 14px;
       color: #94a3b8;
@@ -81,7 +73,6 @@
       max-width: 520px;
       margin: 0 auto;
     }
-
     .hero-stats {
       display: flex;
       gap: 20px;
@@ -90,7 +81,6 @@
       margin-top: 20px;
       position: relative;
     }
-
     .hero-stat {
       background: rgba(255,255,255,0.06);
       border: 1px solid rgba(255,255,255,0.10);
@@ -101,7 +91,6 @@
       color: #cbd5e1;
       backdrop-filter: blur(4px);
     }
-
     .hero-stat strong {
       color: #34d399;
       font-size: 14px;
@@ -109,6 +98,7 @@
       margin-bottom: 1px;
     }
 
+    /* ── Main wrap ── */
     .wrap {
       max-width: 1180px;
       margin: 0 auto;
@@ -121,6 +111,7 @@
       min-height: calc(100vh - 240px);
     }
 
+    /* ── Top nav ── */
     .topnav {
       display: flex;
       gap: 8px;
@@ -128,7 +119,6 @@
       flex-wrap: wrap;
       margin-bottom: 24px;
     }
-
     .nav-link {
       text-decoration: none;
       border-radius: 999px;
@@ -140,18 +130,17 @@
       transition: all 0.18s ease;
       border: 2px solid transparent;
     }
-
     .nav-link:hover {
       background: #cbd5e1;
       color: #1e293b;
     }
-
     .nav-link.active {
       background: #0f172a;
       color: #34d399;
       border-color: rgba(52, 211, 153, 0.3);
     }
 
+    /* ── Toolbar ── */
     .toolbar {
       display: flex;
       flex-wrap: wrap;
@@ -159,50 +148,36 @@
       justify-content: center;
       margin: 4px 0 20px;
     }
-
-    button,
-    input[type="date"] {
+    button {
+      border: none;
       border-radius: 999px;
       padding: 10px 20px;
       font-size: 13px;
       font-weight: 600;
-      font-family: inherit;
-    }
-
-    input[type="date"] {
-      border: 1px solid #cbd5e1;
-      background: white;
-      color: #1e293b;
-    }
-
-    button {
-      border: none;
       cursor: pointer;
       transition: all 0.18s ease;
+      font-family: inherit;
     }
-
     button#resetBtn {
       background: linear-gradient(135deg, #1D9E75, #059669);
       color: white;
       box-shadow: 0 2px 8px rgba(29, 158, 117, 0.35);
     }
-
     button#resetBtn:hover {
       background: linear-gradient(135deg, #16835f, #047857);
       box-shadow: 0 4px 14px rgba(29, 158, 117, 0.45);
       transform: translateY(-1px);
     }
-
     button.secondary {
       background: #e2e8f0;
       color: #1e293b;
     }
-
     button.secondary:hover {
       background: #cbd5e1;
       transform: translateY(-1px);
     }
 
+    /* ── Legend ── */
     .legend {
       display: flex;
       flex-wrap: wrap;
@@ -215,7 +190,6 @@
       border: 1px solid #e2e8f0;
       box-shadow: 0 1px 4px rgba(0,0,0,0.04);
     }
-
     .legend-item {
       display: flex;
       align-items: center;
@@ -224,7 +198,6 @@
       font-weight: 500;
       color: #475569;
     }
-
     .dot {
       width: 8px;
       height: 8px;
@@ -232,8 +205,8 @@
       flex-shrink: 0;
     }
 
+    /* ── Week blocks ── */
     .week-block { margin-bottom: 24px; }
-
     .week-label {
       font-size: 11px;
       font-weight: 700;
@@ -246,7 +219,6 @@
       align-items: center;
       gap: 8px;
     }
-
     .week-label::after {
       content: '';
       flex: 1;
@@ -254,12 +226,12 @@
       background: linear-gradient(90deg, #e2e8f0, transparent);
     }
 
+    /* ── Day grid ── */
     .days-row {
       display: grid;
       grid-template-columns: repeat(7, 1fr);
       gap: 8px;
     }
-
     .day-cell {
       border-radius: 14px;
       padding: 12px 10px;
@@ -268,30 +240,25 @@
       background: #f8fafc;
       transition: all 0.18s ease;
     }
-
     .day-cell.study-day {
       background: #ffffff;
       border-color: #e2e8f0;
       box-shadow: 0 1px 4px rgba(0,0,0,0.05);
     }
-
     .day-cell.study-day:hover {
       box-shadow: 0 6px 20px rgba(0,0,0,0.10);
       transform: translateY(-2px);
       border-color: #cbd5e1;
     }
-
     .day-cell.session-day {
       border: 2px solid #1D9E75;
       background: linear-gradient(145deg, #f0fdf8, #ecfdf5);
       box-shadow: 0 2px 8px rgba(29, 158, 117, 0.12);
     }
-
     .day-cell.session-day:hover {
       box-shadow: 0 8px 24px rgba(29, 158, 117, 0.20);
       transform: translateY(-2px);
     }
-
     .day-cell.empty {
       background: transparent;
       border-color: transparent;
@@ -307,6 +274,7 @@
       margin-bottom: 8px;
     }
 
+    /* ── Section tags ── */
     .section-tag {
       font-size: 11px;
       line-height: 1.4;
@@ -321,7 +289,6 @@
       transition: all 0.15s ease;
       border: 1px solid transparent;
     }
-
     .section-tag:hover { filter: brightness(0.95); }
     .section-tag.intro      { color: #44403c; background: #fafaf9; border-color: #e7e5e4; }
     .section-tag.concepts   { color: #1e40af; background: #eff6ff; border-color: #dbeafe; }
@@ -341,7 +308,6 @@
       line-height: 1.4;
       font-weight: 500;
     }
-
     .detail-list {
       margin-top: 8px;
       font-size: 10px;
@@ -349,7 +315,6 @@
       line-height: 1.4;
       padding-left: 14px;
     }
-
     .detail-list li { margin-bottom: 2px; }
 
     .session-badge {
@@ -365,6 +330,7 @@
       margin-top: 8px;
     }
 
+    /* ── Progress ── */
     .progress-wrap {
       margin: 24px 0 8px;
       background: white;
@@ -373,7 +339,6 @@
       padding: 16px 18px;
       box-shadow: 0 1px 4px rgba(0,0,0,0.04);
     }
-
     .progress-label {
       display: flex;
       justify-content: space-between;
@@ -384,9 +349,7 @@
       margin-bottom: 10px;
       flex-wrap: wrap;
     }
-
     .progress-label span:last-child { color: #1D9E75; }
-
     .progress-track {
       height: 10px;
       background: #f1f5f9;
@@ -394,7 +357,6 @@
       overflow: hidden;
       border: 1px solid #e2e8f0;
     }
-
     .progress-fill {
       height: 100%;
       border-radius: 999px;
@@ -412,11 +374,11 @@
       line-height: 1.6;
     }
 
+    /* ── Responsive ── */
     @media (max-width: 1000px) {
       .days-row { grid-template-columns: repeat(2, 1fr); }
       .day-cell.empty { display: none; }
     }
-
     @media (max-width: 560px) {
       .wrap { padding: 20px 12px 28px; }
       .hero h1 { font-size: 22px; }
@@ -426,23 +388,17 @@
   </style>
 </head>
 <body>
+
+  <!-- Hero -->
   <div class="hero">
     <span class="hero-icon">🔐</span>
     <h1>Professor Messer Security+ <span>Study Roadmap</span></h1>
-    <h2>
-      <a
-        href="https://www.youtube.com/watch?v=STM3EUvL7wg&list=PLG49S3nxzAnl4QDVqK-hOnoqcSKEIDDuv&index=2"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Youtube
-      </a>
-    </h2>
+    <h2><a href="https://www.youtube.com/watch?v=STM3EUvL7wg&list=PLG49S3nxzAnl4QDVqK-hOnoqcSKEIDDuv&index=2" target="_blank">Youtube</a></h2>
     <p>SY0-701 — 45-minute daily sessions, Sundays off. Track every video, every day.</p>
     <div class="hero-stats">
-      <div class="hero-stat"><strong id="statVideos">0</strong>Videos</div>
-      <div class="hero-stat"><strong id="statMinutes">0</strong>Total Content</div>
-      <div class="hero-stat"><strong id="statDays">0</strong>Study Days</div>
+      <div class="hero-stat"><strong>121</strong>Videos</div>
+      <div class="hero-stat"><strong>~911 min</strong>Total Content</div>
+      <div class="hero-stat"><strong>23</strong>Study Days</div>
       <div class="hero-stat"><strong>45 min</strong>Per Day</div>
     </div>
   </div>
@@ -458,7 +414,7 @@
       <button id="resetBtn" type="button">Reset Progress</button>
       <button id="jumpTodayBtn" class="secondary" type="button">Jump to Start Week</button>
       <input type="date" id="startDateInput" />
-      <button id="updateStartBtn" class="secondary" type="button">Update Start Date</button>
+      <button id="updateStartBtn" class="secondary">Update Start Date</button>
     </div>
 
     <div class="legend">
@@ -475,7 +431,7 @@
     <div class="progress-wrap">
       <div class="progress-label">
         <span>Progress tracker</span>
-        <span id="pct">0 of 0 study days complete</span>
+        <span id="pct">0 of 23 study days complete</span>
       </div>
       <div class="progress-track">
         <div class="progress-fill" id="pfill"></div>
@@ -485,14 +441,38 @@
   </div>
 
   <script>
-    const STORAGE_START_KEY = "cyberRoadmapStartDate";
+   const STORAGE_START_KEY = "roadmapStartDate";
+
+  function getStartDate() {
+    const saved = localStorage.getItem(STORAGE_START_KEY);
+    if (saved) return new Date(saved);
+
+    const defaultDate = new Date(2026, 3, 20);
+    localStorage.setItem(STORAGE_START_KEY, defaultDate.toISOString());
+    return defaultDate;
+  }
+
+    let START = getStartDate();
+
+    const startInput = document.getElementById("startDateInput");
+    const updateStartBtn = document.getElementById("updateStartBtn");
+
+    // preload current value
+    startInput.value = START.toISOString().split("T")[0];
+
+    updateStartBtn.addEventListener("click", () => {
+      const newDate = new Date(startInput.value);
+
+      if (!startInput.value) return;
+
+      localStorage.setItem(STORAGE_START_KEY, newDate.toISOString());
+      START = newDate;
+
+      renderCalendar();
+    });
+
+    const STUDY_GROUP_DAYS = [0];
     const STORAGE_KEY = "professorMesserSecurityRoadmapCompletedDays";
-    const STUDY_GROUP_DAYS = []; // Tue, Thu
-
-    const dayNames = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
-    const monthNames = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-
-    // Fill this in yourself
     const dayPlans = [
       {
         day: 1, total_seconds: 2651, video_count: 5, start_num: 28, end_num: 32,
@@ -777,36 +757,53 @@
         tag: "governance",
       },
     ];
-;
+
+    const dayNames = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+    const monthNames = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 
     const calendarEl = document.getElementById("calendar");
     const pctEl = document.getElementById("pct");
     const pfillEl = document.getElementById("pfill");
     const resetBtn = document.getElementById("resetBtn");
     const jumpTodayBtn = document.getElementById("jumpTodayBtn");
-    const startInput = document.getElementById("startDateInput");
-    const updateStartBtn = document.getElementById("updateStartBtn");
-
-    const statVideos = document.getElementById("statVideos");
-    const statMinutes = document.getElementById("statMinutes");
-    const statDays = document.getElementById("statDays");
-
-    function getStartDate() {
-      const saved = localStorage.getItem(STORAGE_START_KEY);
-      if (saved) return new Date(saved);
-
-      const defaultDate = new Date(2026, 3, 20);
-      localStorage.setItem(STORAGE_START_KEY, defaultDate.toISOString());
-      return defaultDate;
-    }
-
-    let START = getStartDate();
-    startInput.value = START.toISOString().split("T")[0];
 
     const saved = localStorage.getItem(STORAGE_KEY);
+    const remove= localStorage.removeItem(STORAGE_KEY); // clears completed days
     const completedDays = new Set(saved ? JSON.parse(saved) : []);
 
-    let daySlots = [];
+    if (confirm("Update start date and reset progress?")) {
+      localStorage.setItem(STORAGE_START_KEY, newDate.toISOString());
+      localStorage.removeItem(STORAGE_KEY);
+      START = newDate;
+      renderCalendar();
+      updateProgress();
+}
+
+    const daySlots = [];
+    let planIndex = 0;
+    let offset = 0;
+
+    while (daySlots.length < dayPlans.length && planIndex < dayPlans.length) {
+      const date = new Date(START.getFullYear(), START.getMonth(), START.getDate() + offset);
+      offset++;
+
+      const jsDay = date.getDay();
+      if (jsDay === 0) continue;
+
+      const plan = dayPlans[planIndex];
+      const isSessionDay = STUDY_GROUP_DAYS.includes(jsDay);
+
+      daySlots.push({
+        id: `security-day-${daySlots.length + 1}`,
+        date,
+        jsDay,
+        dayName: dayNames[jsDay],
+        plan,
+        isSessionDay
+      });
+
+      planIndex++;
+    }
 
     function saveProgress() {
       localStorage.setItem(STORAGE_KEY, JSON.stringify([...completedDays]));
@@ -816,36 +813,11 @@
       return `${monthNames[date.getMonth()]} ${date.getDate()}`;
     }
 
-    function buildDaySlots() {
-      daySlots = [];
-      let planIndex = 0;
-      let offset = 0;
-
-      while (daySlots.length < dayPlans.length && planIndex < dayPlans.length) {
-        const date = new Date(
-          START.getFullYear(),
-          START.getMonth(),
-          START.getDate() + offset
-        );
-        offset++;
-
-        const jsDay = date.getDay();
-        if (jsDay === 0) continue; // skip Sundays
-
-        const plan = dayPlans[planIndex];
-        const isSessionDay = STUDY_GROUP_DAYS.includes(jsDay);
-
-        daySlots.push({
-          id: `security-day-${daySlots.length + 1}`,
-          date,
-          jsDay,
-          dayName: dayNames[jsDay],
-          plan,
-          isSessionDay
-        });
-
-        planIndex++;
-      }
+    function getWeekLabel(week, index) {
+      const start = week.find(Boolean);
+      const end = [...week].reverse().find(Boolean);
+      if (!start || !end) return `Week ${index + 1}`;
+      return `Week ${index + 1} · ${formatShortDate(start.date)}–${formatShortDate(end.date)}`;
     }
 
     function chunkIntoWeeks(slots) {
@@ -853,9 +825,10 @@
       let currentWeek = new Array(7).fill(null);
 
       slots.forEach((slot) => {
-        currentWeek[slot.jsDay] = slot;
+        const dayIndex = slot.jsDay;
+        currentWeek[dayIndex] = slot;
 
-        if (slot.jsDay === 6) {
+        if (dayIndex === 6) {
           weeks.push(currentWeek);
           currentWeek = new Array(7).fill(null);
         }
@@ -868,30 +841,10 @@
       return weeks;
     }
 
-    function getWeekLabel(week, index) {
-      const start = week.find(Boolean);
-      const end = [...week].reverse().find(Boolean);
-
-      if (!start || !end) return `Week ${index + 1}`;
-      return `Week ${index + 1} · ${formatShortDate(start.date)}–${formatShortDate(end.date)}`;
-    }
-
-    function updateStats() {
-      const totalVideos = dayPlans.reduce((sum, plan) => sum + (plan.video_count || 0), 0);
-      const totalMinutes = dayPlans.reduce(
-        (sum, plan) => sum + Math.round((plan.total_seconds || 0) / 60),
-        0
-      );
-
-      statVideos.textContent = totalVideos;
-      statMinutes.textContent = `~${totalMinutes} min`;
-      statDays.textContent = dayPlans.length;
-    }
-
     function updateProgress() {
       const completeCount = completedDays.size;
       const total = daySlots.length;
-      const pct = total === 0 ? 0 : Math.round((completeCount / total) * 100);
+      const pct = Math.round((completeCount / total) * 100);
 
       pctEl.textContent = `${completeCount} of ${total} study days complete`;
       pfillEl.style.width = `${pct}%`;
@@ -923,23 +876,22 @@
 
       const { id, date, dayName, plan, isSessionDay } = slot;
       const isComplete = completedDays.has(id);
-      const minutes = Math.round((plan.total_seconds || 0) / 60);
 
       return `
         <div class="day-cell study-day ${isSessionDay ? "session-day" : ""}">
           <div class="day-name">${dayName} ${date.getDate()}</div>
           <div
-            class="section-tag ${plan.tag || "concepts"} ${isComplete ? "complete" : ""}"
+            class="section-tag ${plan.tag} ${isComplete ? "complete" : ""}"
             onclick="toggleDay('${id}')"
-            title="${plan.summary || ""}"
+            title="${plan.summary}"
           >
-            Day ${plan.day ?? ""} · ${plan.summary || "Add summary"}
+            Day ${plan.day} · ${plan.summary}
           </div>
           <div class="meta">
-            ~${minutes} min · ${plan.video_count || 0} video${(plan.video_count || 0) === 1 ? "" : "s"} · #${plan.start_num ?? ""}–#${plan.end_num ?? ""}
+            ~${Math.round(plan.total_seconds / 60)} min · ${plan.video_count} video${plan.video_count === 1 ? "" : "s"} · #${plan.start_num}–#${plan.end_num}
           </div>
           <ul class="detail-list">
-            ${(plan.details || []).map(item => `<li>${item}</li>`).join("")}
+            ${plan.details.map(item => `<li>${item}</li>`).join("")}
           </ul>
           ${isSessionDay ? `<div class="session-badge">⚡ Review / recap day</div>` : ``}
         </div>
@@ -957,36 +909,7 @@
           </div>
         </div>
       `).join("");
-
-      if (daySlots.length === 0) {
-        calendarEl.innerHTML = `
-          <div class="week-block">
-            <div class="week-label">No Study Days Yet</div>
-            <div style="background:white;border:1px solid #e2e8f0;border-radius:14px;padding:20px;color:#64748b;text-align:center;">
-              Add your day plan objects into the <code>dayPlans</code> array to generate the calendar.
-            </div>
-          </div>
-        `;
-      }
     }
-
-    updateStartBtn.addEventListener("click", () => {
-      if (!startInput.value) return;
-
-      const newDate = new Date(startInput.value + "T00:00:00");
-      const confirmed = window.confirm("Update start date and reset progress?");
-      if (!confirmed) return;
-
-      localStorage.setItem(STORAGE_START_KEY, newDate.toISOString());
-      START = newDate;
-
-      completedDays.clear();
-      localStorage.removeItem(STORAGE_KEY);
-
-      buildDaySlots();
-      renderCalendar();
-      updateProgress();
-    });
 
     resetBtn.addEventListener("click", () => {
       const confirmed = window.confirm("Reset all completed Security+ study days?");
@@ -1000,11 +923,8 @@
 
     window.toggleDay = toggleDay;
 
-    updateStats();
-    buildDaySlots();
     renderCalendar();
     updateProgress();
   </script>
 </body>
 </html>
-   
