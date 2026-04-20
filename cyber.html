@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Professor Messer Security+ Roadmap</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', Arial, Helvetica, sans-serif;
+      background: #0f172a;
+      color: #1f2937;
+      min-height: 100vh;
+    }
+
+    /* ── Hero header ── */
+    .hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f4c3a 100%);
+      padding: 36px 20px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(29, 158, 117, 0.15) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(59, 130, 246, 0.08) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .hero-icon {
+      font-size: 40px;
+      margin-bottom: 12px;
+      display: block;
+      filter: drop-shadow(0 0 12px rgba(29, 158, 117, 0.6));
+    }
+    .hero h1 {
+      font-size: 28px;
+      font-weight: 800;
+      color: #f8fafc;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 10px;
+      position: relative;
+    }
+    .hero h1 span {
+      background: linear-gradient(90deg, #1D9E75, #34d399);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero p {
+      font-size: 14px;
+      color: #94a3b8;
+      line-height: 1.6;
+      position: relative;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 20px;
+      position: relative;
+    }
+    .hero-stat {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 10px;
+      padding: 8px 16px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #cbd5e1;
+      backdrop-filter: blur(4px);
+    }
+    .hero-stat strong {
+      color: #34d399;
+      font-size: 14px;
+      display: block;
+      margin-bottom: 1px;
+    }
+
+    /* ── Main wrap ── */
+    .wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+      background: #f8fafc;
+      border-radius: 20px 20px 0 0;
+      margin-top: -20px;
+      position: relative;
+      z-index: 1;
+      padding: 28px 18px 40px;
+      min-height: calc(100vh - 240px);
+    }
+
+    /* ── Top nav ── */
+    .topnav {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+    .nav-link {
+      text-decoration: none;
+      border-radius: 999px;
+      padding: 8px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      background: #e2e8f0;
+      color: #475569;
+      transition: all 0.18s ease;
+      border: 2px solid transparent;
+    }
+    .nav-link:hover {
+      background: #cbd5e1;
+      color: #1e293b;
+    }
+    .nav-link.active {
+      background: #0f172a;
+      color: #34d399;
+      border-color: rgba(52, 211, 153, 0.3);
+    }
+
+    /* ── Toolbar ── */
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin: 4px 0 20px;
+    }
+    button {
+      border: none;
+      border-radius: 999px;
+      padding: 10px 20px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      font-family: inherit;
+    }
+    button#resetBtn {
+      background: linear-gradient(135deg, #1D9E75, #059669);
+      color: white;
+      box-shadow: 0 2px 8px rgba(29, 158, 117, 0.35);
+    }
+    button#resetBtn:hover {
+      background: linear-gradient(135deg, #16835f, #047857);
+      box-shadow: 0 4px 14px rgba(29, 158, 117, 0.45);
+      transform: translateY(-1px);
+    }
+    button.secondary {
+      background: #e2e8f0;
+      color: #1e293b;
+    }
+    button.secondary:hover {
+      background: #cbd5e1;
+      transform: translateY(-1px);
+    }
+
+    /* ── Legend ── */
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+      justify-content: center;
+      margin: 0 0 24px;
+      padding: 14px 18px;
+      background: white;
+      border-radius: 14px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 500;
+      color: #475569;
+    }
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ── Week blocks ── */
+    .week-block { margin-bottom: 24px; }
+    .week-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 10px;
+      padding-left: 4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .week-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, #e2e8f0, transparent);
+    }
+
+    /* ── Day grid ── */
+    .days-row {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 8px;
+    }
+    .day-cell {
+      border-radius: 14px;
+      padding: 12px 10px;
+      min-height: 180px;
+      border: 1px solid #e2e8f0;
+      background: #f8fafc;
+      transition: all 0.18s ease;
+    }
+    .day-cell.study-day {
+      background: #ffffff;
+      border-color: #e2e8f0;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .day-cell.study-day:hover {
+      box-shadow: 0 6px 20px rgba(0,0,0,0.10);
+      transform: translateY(-2px);
+      border-color: #cbd5e1;
+    }
+    .day-cell.session-day {
+      border: 2px solid #1D9E75;
+      background: linear-gradient(145deg, #f0fdf8, #ecfdf5);
+      box-shadow: 0 2px 8px rgba(29, 158, 117, 0.12);
+    }
+    .day-cell.session-day:hover {
+      box-shadow: 0 8px 24px rgba(29, 158, 117, 0.20);
+      transform: translateY(-2px);
+    }
+    .day-cell.empty {
+      background: transparent;
+      border-color: transparent;
+      box-shadow: none;
+    }
+
+    .day-name {
+      font-size: 11px;
+      color: #94a3b8;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 8px;
+    }
+
+    /* ── Section tags ── */
+    .section-tag {
+      font-size: 11px;
+      line-height: 1.4;
+      font-weight: 600;
+      border-radius: 8px;
+      padding: 5px 8px;
+      display: inline-block;
+      margin-top: 2px;
+      cursor: pointer;
+      user-select: none;
+      width: 100%;
+      transition: all 0.15s ease;
+      border: 1px solid transparent;
+    }
+    .section-tag:hover { filter: brightness(0.95); }
+    .section-tag.intro      { color: #44403c; background: #fafaf9; border-color: #e7e5e4; }
+    .section-tag.concepts   { color: #1e40af; background: #eff6ff; border-color: #dbeafe; }
+    .section-tag.crypto     { color: #4c1d95; background: #f5f3ff; border-color: #ede9fe; }
+    .section-tag.threats    { color: #991b1b; background: #fff1f2; border-color: #fecdd3; }
+    .section-tag.architecture { color: #14532d; background: #f0fdf4; border-color: #bbf7d0; }
+    .section-tag.data       { color: #7c2d12; background: #fff7ed; border-color: #fed7aa; }
+    .section-tag.operations { color: #064e3b; background: #ecfdf5; border-color: #a7f3d0; }
+    .section-tag.incident   { color: #4c1d95; background: #faf5ff; border-color: #e9d5ff; }
+    .section-tag.governance { color: #78350f; background: #fffbeb; border-color: #fde68a; }
+    .section-tag.complete   { text-decoration: line-through; opacity: 0.45; }
+
+    .meta {
+      font-size: 10px;
+      color: #94a3b8;
+      margin-top: 7px;
+      line-height: 1.4;
+      font-weight: 500;
+    }
+    .detail-list {
+      margin-top: 8px;
+      font-size: 10px;
+      color: #475569;
+      line-height: 1.4;
+      padding-left: 14px;
+    }
+    .detail-list li { margin-bottom: 2px; }
+
+    .session-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 10px;
+      font-weight: 700;
+      color: #065f46;
+      background: rgba(29, 158, 117, 0.12);
+      border-radius: 999px;
+      padding: 3px 8px;
+      margin-top: 8px;
+    }
+
+    /* ── Progress ── */
+    .progress-wrap {
+      margin: 24px 0 8px;
+      background: white;
+      border-radius: 14px;
+      border: 1px solid #e2e8f0;
+      padding: 16px 18px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    }
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #374151;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+    .progress-label span:last-child { color: #1D9E75; }
+    .progress-track {
+      height: 10px;
+      background: #f1f5f9;
+      border-radius: 999px;
+      overflow: hidden;
+      border: 1px solid #e2e8f0;
+    }
+    .progress-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #1D9E75, #34d399);
+      transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      width: 0%;
+      box-shadow: 0 0 8px rgba(52, 211, 153, 0.4);
+    }
+
+    .footer-note {
+      font-size: 12px;
+      color: #94a3b8;
+      text-align: center;
+      margin-top: 12px;
+      line-height: 1.6;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 1000px) {
+      .days-row { grid-template-columns: repeat(2, 1fr); }
+      .day-cell.empty { display: none; }
+    }
+    @media (max-width: 560px) {
+      .wrap { padding: 20px 12px 28px; }
+      .hero h1 { font-size: 22px; }
+      .days-row { grid-template-columns: 1fr; }
+      .day-cell { min-height: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <div class="hero">
+    <span class="hero-icon">🔐</span>
+    <h1>Professor Messer Security+ <span>Study Roadmap</span></h1>
+    <p>SY0-701 — 45-minute daily sessions, Sundays off. Track every video, every day.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><strong>121</strong>Videos</div>
+      <div class="hero-stat"><strong>~911 min</strong>Total Content</div>
+      <div class="hero-stat"><strong>23</strong>Study Days</div>
+      <div class="hero-stat"><strong>45 min</strong>Per Day</div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="topnav">
+      <a class="nav-link" href="./index.html">Trading Roadmap</a>
+      <a class="nav-link" href="./aws.html">AWS Roadmap</a>
+      <a class="nav-link active" href="./cyber.html">Security+ Roadmap</a>
+    </div>
+
+    <div class="toolbar">
+      <button id="resetBtn" type="button">Reset Progress</button>
+      <button id="jumpTodayBtn" class="secondary" type="button">Jump to Start Week</button>
+    </div>
+
+    <div class="legend">
+      <div class="legend-item"><div class="dot" style="background:#1D9E75"></div>Tue/Thu review day</div>
+      <div class="legend-item"><span class="section-tag concepts" style="font-size:11px;cursor:default;width:auto;padding:3px 8px">Tag</span> Concepts / Crypto</div>
+      <div class="legend-item"><span class="section-tag threats" style="font-size:11px;cursor:default;width:auto;padding:3px 8px">Tag</span> Threats / Mitigation</div>
+      <div class="legend-item"><span class="section-tag architecture" style="font-size:11px;cursor:default;width:auto;padding:3px 8px">Tag</span> Architecture / Data</div>
+      <div class="legend-item"><span class="section-tag operations" style="font-size:11px;cursor:default;width:auto;padding:3px 8px">Tag</span> Operations / IAM</div>
+      <div class="legend-item"><span class="section-tag governance" style="font-size:11px;cursor:default;width:auto;padding:3px 8px">Tag</span> Governance / Risk</div>
+    </div>
+
+    <div id="calendar"></div>
+
+    <div class="progress-wrap">
+      <div class="progress-label">
+        <span>Progress tracker</span>
+        <span id="pct">0 of 23 study days complete</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="pfill"></div>
+      </div>
+    </div>
+    <p class="footer-note">Click a day card to mark it complete. Progress saves automatically in your browser.</p>
+  </div>
+
+  <script>
+    const START = new Date(2026, 5, 10);
+    const STUDY_GROUP_DAYS = [2, 4];
+    const STORAGE_KEY = "professorMesserSecurityRoadmapCompletedDays";
+    const dayPlans = [{"day": 1, "total_seconds": 2651, "video_count": 5, "start_num": 28, "end_num": 32, "summary": "How to Pass Your SY0-701 Security+ Exam \u2192 Authentication, Authorization, and Accounting", "details": ["28. How to Pass Your SY0-701 Security+ Exam (10:06)", "29. Security Controls (11:48)", "30. The CIA Triad (5:17)", "31. Non-repudiation (7:57)", "32. Authentication, Authorization, and Accounting (9:03)"], "tag": "intro"}, {"day": 2, "total_seconds": 2457, "video_count": 5, "start_num": 33, "end_num": 37, "summary": "Gap Analysis \u2192 Change Management", "details": ["33. Gap Analysis (6:44)", "34. Zero Trust (10:04)", "35. Physical Security (8:17)", "36. Deception and Disruption (4:30)", "37. Change Management (11:22)"], "tag": "concepts"}, {"day": 3, "total_seconds": 2422, "video_count": 5, "start_num": 38, "end_num": 42, "summary": "Technical Change Management \u2192 Encryption Technologies", "details": ["38. Technical Change Management (10:54)", "39. Public Key Infrastructure (9:08)", "40. Encrypting Data (9:48)", "41. Key Exchange (3:39)", "42. Encryption Technologies (6:53)"], "tag": "concepts"}, {"day": 4, "total_seconds": 2124, "video_count": 4, "start_num": 43, "end_num": 46, "summary": "Obfuscation \u2192 Certificates", "details": ["43. Obfuscation (8:00)", "44. Hashing and Digital Signatures (10:24)", "45. Blockchain Technology (2:22)", "46. Certificates (14:38)"], "tag": "crypto"}, {"day": 5, "total_seconds": 2653, "video_count": 5, "start_num": 47, "end_num": 51, "summary": "Threat Actors \u2192 Watering Hole Attacks", "details": ["47. Threat Actors (10:23)", "48. Common Threat Vectors (17:14)", "49. Phishing (6:32)", "50. Impersonation (5:52)", "51. Watering Hole Attacks (4:12)"], "tag": "threats"}, {"day": 6, "total_seconds": 2687, "video_count": 9, "start_num": 52, "end_num": 60, "summary": "Other Social Engineering Attacks \u2192 Hardware Vulnerabilities", "details": ["52. Other Social Engineering Attacks (3:29)", "53. Memory Injections (2:39)", "54. Buffer Overflows (3:37)", "55. Race Conditions (4:58)", "56. Malicious Updates (5:45)", "57. Operating System Vulnerabilities (4:09)", "58. SQL Injection (5:09)", "59. Cross-site Scripting (8:34)", "60. Hardware Vulnerabilities (6:27)"], "tag": "threats"}, {"day": 7, "total_seconds": 2661, "video_count": 8, "start_num": 61, "end_num": 68, "summary": "Virtualization Vulnerabilities \u2192 Viruses and Worms", "details": ["61. Virtualization Vulnerabilities (5:29)", "62. Cloud-specific Vulnerabilities (4:06)", "63. Supply Chain Vulnerabilities (9:12)", "64. Misconfiguration Vulnerabilities (7:09)", "65. Mobile Device Vulnerabilities (3:23)", "66. Zero-day Vulnerabilities (3:02)", "67. An Overview of Malware (6:06)", "68. Viruses and Worms (5:54)"], "tag": "threats"}, {"day": 8, "total_seconds": 2666, "video_count": 7, "start_num": 69, "end_num": 75, "summary": "Spyware and Bloatware \u2192 On-path Attacks", "details": ["69. Spyware and Bloatware (4:21)", "70. Other Malware Types (7:32)", "71. Physical Attacks (4:04)", "72. Denial of Service (6:07)", "73. DNS Attacks (8:57)", "74. Wireless Attacks (7:55)", "75. On-path Attacks (5:30)"], "tag": "threats"}, {"day": 9, "total_seconds": 2279, "video_count": 5, "start_num": 76, "end_num": 80, "summary": "Replay Attacks \u2192 Password Attacks", "details": ["76. Replay Attacks (5:45)", "77. Malicious Code (3:40)", "78. Application Attacks (11:48)", "79. Cryptographic Attacks (9:31)", "80. Password Attacks (7:15)"], "tag": "threats"}, {"day": 10, "total_seconds": 2167, "video_count": 4, "start_num": 81, "end_num": 84, "summary": "Indicators of Compromise \u2192 Hardening Techniques", "details": ["81. Indicators of Compromise (10:59)", "82. Segmentation and Access Control (6:06)", "83. Mitigation Techniques (6:51)", "84. Hardening Techniques (12:11)"], "tag": "threats"}, {"day": 11, "total_seconds": 1876, "video_count": 3, "start_num": 85, "end_num": 87, "summary": "Cloud Infrastructures \u2192 Other Infrastructure Concepts", "details": ["85. Cloud Infrastructures (9:56)", "86. Network Infrastructure Concepts (6:56)", "87. Other Infrastructure Concepts (14:24)"], "tag": "architecture"}, {"day": 12, "total_seconds": 2442, "video_count": 5, "start_num": 88, "end_num": 92, "summary": "Infrastructure Considerations \u2192 Port Security", "details": ["88. Infrastructure Considerations (13:48)", "89. Secure Infrastructures (5:54)", "90. Intrusion Prevention (5:14)", "91. Network Appliances (11:56)", "92. Port Security (3:50)"], "tag": "architecture"}, {"day": 13, "total_seconds": 2664, "video_count": 5, "start_num": 93, "end_num": 97, "summary": "Firewall Types \u2192 Protecting Data", "details": ["93. Firewall Types (8:00)", "94. Secure Communication (9:55)", "95. Data Types and Classifications (5:54)", "96. States of Data (6:07)", "97. Protecting Data (14:28)"], "tag": "architecture"}, {"day": 14, "total_seconds": 2362, "video_count": 6, "start_num": 98, "end_num": 103, "summary": "Resiliency \u2192 Secure Baselines", "details": ["98. Resiliency (9:42)", "99. Capacity Planning (3:53)", "100. Recovery Testing (5:18)", "101. Backups (12:16)", "102. Power Resiliency (4:02)", "103. Secure Baselines (4:11)"], "tag": "data"}, {"day": 15, "total_seconds": 2309, "video_count": 4, "start_num": 104, "end_num": 107, "summary": "Hardening Targets \u2192 Application Security", "details": ["104. Hardening Targets (10:11)", "105. Securing Wireless and Mobile (8:58)", "106. Wireless Security Settings (10:54)", "107. Application Security (8:26)"], "tag": "operations"}, {"day": 16, "total_seconds": 2278, "video_count": 5, "start_num": 108, "end_num": 112, "summary": "Asset Management \u2192 Analyzing Vulnerabilities", "details": ["108. Asset Management (8:37)", "109. Vulnerability Scanning (7:45)", "110. Threat Intelligence (4:46)", "111. Penetration Testing (6:21)", "112. Analyzing Vulnerabilities (10:29)"], "tag": "operations"}, {"day": 17, "total_seconds": 2689, "video_count": 4, "start_num": 113, "end_num": 116, "summary": "Vulnerability Remediation \u2192 Firewalls", "details": ["113. Vulnerability Remediation (8:45)", "114. Security Monitoring (10:27)", "115. Security Tools (14:06)", "116. Firewalls (11:31)"], "tag": "operations"}, {"day": 18, "total_seconds": 2524, "video_count": 6, "start_num": 117, "end_num": 122, "summary": "Web Filtering \u2192 Endpoint Security", "details": ["117. Web Filtering (10:00)", "118. Operating System Security (3:22)", "119. Secure Protocols (4:47)", "120. Email Security (7:05)", "121. Monitoring Data (7:25)", "122. Endpoint Security (9:25)"], "tag": "operations"}, {"day": 19, "total_seconds": 2386, "video_count": 5, "start_num": 123, "end_num": 127, "summary": "Identity and Access Management \u2192 Scripting and Automation", "details": ["123. Identity and Access Management (12:46)", "124. Access Controls (7:49)", "125. Multifactor Authentication (4:29)", "126. Password Security (6:22)", "127. Scripting and Automation (8:20)"], "tag": "operations"}, {"day": 20, "total_seconds": 2379, "video_count": 4, "start_num": 128, "end_num": 131, "summary": "Incident Response \u2192 Log Data", "details": ["128. Incident Response (9:14)", "129. Incident Planning (6:50)", "130. Digital Forensics (9:54)", "131. Log Data (13:41)"], "tag": "incident"}, {"day": 21, "total_seconds": 2621, "video_count": 7, "start_num": 132, "end_num": 138, "summary": "Security Policies \u2192 Risk Analysis", "details": ["132. Security Policies (11:02)", "133. Security Standards (5:36)", "134. Security Procedures (7:02)", "135. Security Considerations (4:51)", "136. Data Roles and Responsibilities (2:27)", "137. Risk Management (3:30)", "138. Risk Analysis (9:13)"], "tag": "governance"}, {"day": 22, "total_seconds": 2687, "video_count": 8, "start_num": 139, "end_num": 146, "summary": "Risk Management Strategies \u2192 Penetration Tests", "details": ["139. Risk Management Strategies (3:12)", "140. Business Impact Analysis (2:55)", "141. Third-party Risk Assessment (11:36)", "142. Agreement Types (5:19)", "143. Compliance (8:06)", "144. Privacy (5:21)", "145. Audits and Assessments (2:49)", "146. Penetration Tests (5:29)"], "tag": "governance"}, {"day": 23, "total_seconds": 676, "video_count": 2, "start_num": 147, "end_num": 148, "summary": "Security Awareness \u2192 User Training", "details": ["147. Security Awareness (6:45)", "148. User Training (4:31)"], "tag": "governance"}];
+
+    const dayNames = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+    const monthNames = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+    const calendarEl = document.getElementById("calendar");
+    const pctEl = document.getElementById("pct");
+    const pfillEl = document.getElementById("pfill");
+    const resetBtn = document.getElementById("resetBtn");
+    const jumpTodayBtn = document.getElementById("jumpTodayBtn");
+
+    const saved = localStorage.getItem(STORAGE_KEY);
+    const completedDays = new Set(saved ? JSON.parse(saved) : []);
+
+    const daySlots = [];
+    let planIndex = 0;
+    let offset = 0;
+
+    while (daySlots.length < dayPlans.length && planIndex < dayPlans.length) {
+      const date = new Date(START.getFullYear(), START.getMonth(), START.getDate() + offset);
+      offset++;
+
+      const jsDay = date.getDay();
+      if (jsDay === 0) continue;
+
+      const plan = dayPlans[planIndex];
+      const isSessionDay = STUDY_GROUP_DAYS.includes(jsDay);
+
+      daySlots.push({
+        id: `security-day-${daySlots.length + 1}`,
+        date,
+        jsDay,
+        dayName: dayNames[jsDay],
+        plan,
+        isSessionDay
+      });
+
+      planIndex++;
+    }
+
+    function saveProgress() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify([...completedDays]));
+    }
+
+    function formatShortDate(date) {
+      return `${monthNames[date.getMonth()]} ${date.getDate()}`;
+    }
+
+    function getWeekLabel(week, index) {
+      const start = week.find(Boolean);
+      const end = [...week].reverse().find(Boolean);
+      if (!start || !end) return `Week ${index + 1}`;
+      return `Week ${index + 1} · ${formatShortDate(start.date)}–${formatShortDate(end.date)}`;
+    }
+
+    function chunkIntoWeeks(slots) {
+      const weeks = [];
+      let currentWeek = new Array(7).fill(null);
+
+      slots.forEach((slot) => {
+        const dayIndex = slot.jsDay;
+        currentWeek[dayIndex] = slot;
+
+        if (dayIndex === 6) {
+          weeks.push(currentWeek);
+          currentWeek = new Array(7).fill(null);
+        }
+      });
+
+      if (currentWeek.some(Boolean)) {
+        weeks.push(currentWeek);
+      }
+
+      return weeks;
+    }
+
+    function updateProgress() {
+      const completeCount = completedDays.size;
+      const total = daySlots.length;
+      const pct = Math.round((completeCount / total) * 100);
+
+      pctEl.textContent = `${completeCount} of ${total} study days complete`;
+      pfillEl.style.width = `${pct}%`;
+    }
+
+    function toggleDay(dayId) {
+      if (completedDays.has(dayId)) {
+        completedDays.delete(dayId);
+      } else {
+        completedDays.add(dayId);
+      }
+
+      saveProgress();
+      renderCalendar();
+      updateProgress();
+    }
+
+    function resetProgress() {
+      completedDays.clear();
+      saveProgress();
+      renderCalendar();
+      updateProgress();
+    }
+
+    function buildDayCell(slot) {
+      if (!slot) {
+        return `<div class="day-cell empty"></div>`;
+      }
+
+      const { id, date, dayName, plan, isSessionDay } = slot;
+      const isComplete = completedDays.has(id);
+
+      return `
+        <div class="day-cell study-day ${isSessionDay ? "session-day" : ""}">
+          <div class="day-name">${dayName} ${date.getDate()}</div>
+          <div
+            class="section-tag ${plan.tag} ${isComplete ? "complete" : ""}"
+            onclick="toggleDay('${id}')"
+            title="${plan.summary}"
+          >
+            Day ${plan.day} · ${plan.summary}
+          </div>
+          <div class="meta">
+            ~${Math.round(plan.total_seconds / 60)} min · ${plan.video_count} video${plan.video_count === 1 ? "" : "s"} · #${plan.start_num}–#${plan.end_num}
+          </div>
+          <ul class="detail-list">
+            ${plan.details.map(item => `<li>${item}</li>`).join("")}
+          </ul>
+          ${isSessionDay ? `<div class="session-badge">⚡ Review / recap day</div>` : ``}
+        </div>
+      `;
+    }
+
+    function renderCalendar() {
+      const weeks = chunkIntoWeeks(daySlots);
+
+      calendarEl.innerHTML = weeks.map((week, index) => `
+        <div class="week-block" ${index === 0 ? 'id="startWeek"' : ''}>
+          <div class="week-label">${getWeekLabel(week, index)}</div>
+          <div class="days-row">
+            ${week.map(buildDayCell).join("")}
+          </div>
+        </div>
+      `).join("");
+    }
+
+    resetBtn.addEventListener("click", () => {
+      const confirmed = window.confirm("Reset all completed Security+ study days?");
+      if (confirmed) resetProgress();
+    });
+
+    jumpTodayBtn.addEventListener("click", () => {
+      const el = document.getElementById("startWeek");
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    window.toggleDay = toggleDay;
+
+    renderCalendar();
+    updateProgress();
+  </script>
+</body>
+</html>
