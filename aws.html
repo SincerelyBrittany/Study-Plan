@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>56-Hour Trading Course Roadmap</title>
+  <title>AWS Cloud Practitioner Roadmap</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -20,7 +20,7 @@
       box-shadow: 0 8px 24px rgba(0,0,0,0.08);
       padding: 20px 14px 24px;
     }
-      .topnav {
+    .topnav {
       display: flex;
       gap: 10px;
       justify-content: center;
@@ -116,7 +116,7 @@
     .day-cell {
       border-radius: 10px;
       padding: 8px 6px;
-      min-height: 90px;
+      min-height: 108px;
       border: 1px solid #e5e7eb;
       background: #f9fafb;
     }
@@ -150,15 +150,21 @@
       user-select: none;
       width: 100%;
     }
-    .section-tag.risk  { color: #3B6D11; background: #EAF3DE; }
-    .section-tag.psych { color: #3C3489; background: #EEEDFE; }
-    .section-tag.tech  { color: #0C447C; background: #E6F1FB; }
-    .section-tag.trade { color: #633806; background: #FAEEDA; }
-    .section-tag.adv   { color: #71231D; background: #FCEBEB; }
-    .section-tag.cap   { color: #3B3B3B; background: #F1EFE8; }
+    .section-tag.intro      { color: #3B3B3B; background: #F1EFE8; }
+    .section-tag.core       { color: #0C447C; background: #E6F1FB; }
+    .section-tag.security   { color: #71231D; background: #FCEBEB; }
+    .section-tag.network    { color: #3C3489; background: #EEEDFE; }
+    .section-tag.storage    { color: #3B6D11; background: #EAF3DE; }
+    .section-tag.exam       { color: #633806; background: #FAEEDA; }
     .section-tag.complete {
       text-decoration: line-through;
       opacity: 0.55;
+    }
+    .meta {
+      font-size: 10px;
+      color: #6b7280;
+      margin-top: 5px;
+      line-height: 1.35;
     }
     .session-badge {
       font-size: 10px;
@@ -225,13 +231,13 @@
 <body>
   <div class="wrap">
     <div class="topnav">
-      <a class="nav-link active" href="./index.html">Trading Roadmap</a>
-      <a class="nav-link" href="./aws.html">AWS Roadmap</a>
+      <a class="nav-link" href="./index.html">Trading Roadmap</a>
+      <a class="nav-link active" href="./aws.html">AWS Roadmap</a>
     </div>
-    
+
     <div class="header">
-      <h2>56-Hour Trading Course — 65-Study-Day Roadmap</h2>
-      <p>26 sections · 65 study days · ~84 min/day · Study groups every Tue & Thu · Sundays off · Starts Apr 15, 2026</p>
+      <h2>AWS Cloud Practitioner — Study Roadmap</h2>
+      <p>23 sections · 28 study days · Tuesdays & Thursdays highlighted · Sundays off · Any section over 1 hour is split into 2 days</p>
     </div>
 
     <div class="toolbar">
@@ -240,11 +246,12 @@
     </div>
 
     <div class="legend">
-      <div class="legend-item"><div class="dot" style="background:#1D9E75"></div>Study group (Tue/Thu)</div>
-      <div class="legend-item"><span class="section-tag risk" style="font-size:11px;cursor:default;width:auto">Tag</span> Risk & Psychology</div>
-      <div class="legend-item"><span class="section-tag tech" style="font-size:11px;cursor:default;width:auto">Tag</span> Charting & Tools</div>
-      <div class="legend-item"><span class="section-tag trade" style="font-size:11px;cursor:default;width:auto">Tag</span> Trading Strategies</div>
-      <div class="legend-item"><span class="section-tag adv" style="font-size:11px;cursor:default;width:auto">Tag</span> Advanced / Bonus</div>
+      <div class="legend-item"><div class="dot" style="background:#1D9E75"></div>Recommended review / study group day (Tue/Thu)</div>
+      <div class="legend-item"><span class="section-tag core" style="font-size:11px;cursor:default;width:auto">Tag</span> Core AWS</div>
+      <div class="legend-item"><span class="section-tag security" style="font-size:11px;cursor:default;width:auto">Tag</span> Security</div>
+      <div class="legend-item"><span class="section-tag network" style="font-size:11px;cursor:default;width:auto">Tag</span> Networking</div>
+      <div class="legend-item"><span class="section-tag storage" style="font-size:11px;cursor:default;width:auto">Tag</span> Storage/Data</div>
+      <div class="legend-item"><span class="section-tag exam" style="font-size:11px;cursor:default;width:auto">Tag</span> Exam Prep</div>
     </div>
 
     <div id="calendar"></div>
@@ -252,53 +259,45 @@
     <div class="progress-wrap">
       <div class="progress-label">
         <span>Progress tracker</span>
-        <span id="pct">0 of 65 study days complete</span>
+        <span id="pct">0 of 28 study days complete</span>
       </div>
       <div class="progress-track">
         <div class="progress-fill" id="pfill"></div>
       </div>
     </div>
-    <p class="footer-note">Click a day to mark that study day complete. Your progress saves automatically in this browser using local storage.</p>
+    <p class="footer-note">Click a day to mark that study day complete. Progress saves automatically in this browser with local storage.</p>
   </div>
 
   <script>
     const sections = [
-      { n:1,  title:"How To Study",           tag:"cap",   days:1 },
-      { n:2,  title:"Risk Management",        tag:"risk",  days:2 },
-      { n:3,  title:"Trading Psychology",     tag:"psych", days:1 },
-      { n:4,  title:"Compound to Wealth",     tag:"risk",  days:1 },
-      { n:5,  title:"Foundational Course",    tag:"tech",  days:3 },
-      { n:6,  title:"Updated Charting",       tag:"tech",  days:1 },
-      { n:7,  title:"Price Action + Strat",   tag:"tech",  days:5 },
-      { n:7.5, title:"Strat-youtube",   tag:"tech",  days:5 },
-      { n:8,  title:"ETFs (Big Money)",       tag:"trade", days:5 },
-      { n:9,  title:"TradingView Setup",      tag:"tech",  days:2 },
-      { n:10, title:"TV Indicators Dive",     tag:"tech",  days:2 },
-      { n:11, title:"Catalyst Trader",        tag:"trade", days:2 },
-      { n:12, title:"Swing Trading",          tag:"trade", days:2 },
-      { n:13, title:"Chapter 27",             tag:"trade", days:1 },
-      { n:13.5, title:"Swing Trading",          tag:"trade", days:3 },
-      { n:13, title:"Chapter 26",             tag:"trade", days:1 },
-      { n:14, title:"Targeted Days",          tag:"trade", days:2 },
-      { n:15, title:"Explosive Days Pt3",     tag:"trade", days:1 },
-      { n:16, title:"Preparation",            tag:"trade", days:1 },
-      { n:17, title:"Bonus (High Risk)",      tag:"adv",   days:1 },
-      { n:18, title:"Lux Algo Screener",      tag:"tech",  days:1 },
-      { n:19, title:"Upgrades/Downgrades",    tag:"adv",   days:1 },
-      { n:20, title:"Extreme Vol Scanner",    tag:"tech",  days:1 },
-      { n:21, title:"Mid Day Opps",           tag:"trade", days:1 },
-      { n:22, title:"Utilizing Flow",         tag:"trade", days:1 },
-      { n:23, title:"Trade GPT (AI)",         tag:"adv",   days:1 },
-      { n:24, title:"Intro to Futures",       tag:"trade", days:2 },
-      { n:25, title:"Get Your S*** Together", tag:"psych", days:1 },
-      { n:26, title:"Option Contracts",       tag:"adv",   days:2 },
-      { n:27,  title:"Trading Psychology",     tag:"psych", days:2 },
+      { n: 1, title: "Introduction", minutes: 14, tag: "intro" },
+      { n: 2, title: "Code & Slides Download", minutes: 1, tag: "intro" },
+      { n: 3, title: "What is Cloud Computing?", minutes: 32, tag: "core" },
+      { n: 4, title: "IAM - Identity and Access Management", minutes: 58, tag: "security" },
+      { n: 5, title: "EC2 - Elastic Compute Cloud", minutes: 83, tag: "core" },
+      { n: 6, title: "EC2 Instance Storage", minutes: 42, tag: "storage" },
+      { n: 7, title: "ELB & ASG - Elastic Load Balancing & Auto Scaling Groups", minutes: 39, tag: "core" },
+      { n: 8, title: "Amazon S3", minutes: 62, tag: "storage" },
+      { n: 9, title: "Databases & Analytics", minutes: 47, tag: "storage" },
+      { n: 10, title: "Other Compute Services: ECS, Lambda, Batch, Lightsail", minutes: 37, tag: "core" },
+      { n: 11, title: "Deployments & Managing Infrastructure at Scale", minutes: 46, tag: "core" },
+      { n: 12, title: "Leveraging the AWS Global Infrastructure", minutes: 49, tag: "core" },
+      { n: 13, title: "Cloud Integrations", minutes: 18, tag: "core" },
+      { n: 14, title: "Cloud Monitoring", minutes: 42, tag: "core" },
+      { n: 15, title: "VPC & Networking", minutes: 35, tag: "network" },
+      { n: 16, title: "Security & Compliance", minutes: 56, tag: "security" },
+      { n: 17, title: "Machine Learning", minutes: 17, tag: "core" },
+      { n: 18, title: "Account Management, Billing & Support", minutes: 74, tag: "core" },
+      { n: 19, title: "Advanced Identity", minutes: 9, tag: "security" },
+      { n: 20, title: "Other Services", minutes: 36, tag: "core" },
+      { n: 21, title: "AWS Architecting & Ecosystem", minutes: 52, tag: "core" },
+      { n: 22, title: "Preparing for the Exam + Practice Exam", minutes: 23, tag: "exam" },
+      { n: 23, title: "Congratulations - AWS Certified Cloud Practitioner", minutes: 9, tag: "exam" }
     ];
 
-    const START = new Date(2026, 3, 15);
-    const TOTAL_STUDY_DAYS = 65;
-    const STUDY_GROUP_DAYS = [2, 4];
-    const STORAGE_KEY = "tradingRoadmapCompletedDays";
+    const START = new Date(2026, 3, 7);
+    const STUDY_GROUP_DAYS = [2, 4]; // Tue, Thu
+    const STORAGE_KEY = "awsRoadmapCompletedDays";
 
     const dayNames = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
     const monthNames = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
@@ -312,12 +311,40 @@
     const saved = localStorage.getItem(STORAGE_KEY);
     const completedDays = new Set(saved ? JSON.parse(saved) : []);
 
+    function getStudyDaysForSection(minutes) {
+      return minutes > 60 ? 2 : 1;
+    }
+
+    function formatDuration(minutes) {
+      if (minutes < 60) return `${minutes} min`;
+      const hrs = Math.floor(minutes / 60);
+      const mins = minutes % 60;
+      if (mins === 0) return `${hrs} hr`;
+      return `${hrs} hr ${mins} min`;
+    }
+
+    const expandedDays = [];
+    sections.forEach((section) => {
+      const studyDays = getStudyDaysForSection(section.minutes);
+      for (let part = 1; part <= studyDays; part++) {
+        expandedDays.push({
+          sectionNumber: section.n,
+          title: section.title,
+          tag: section.tag,
+          totalMinutes: section.minutes,
+          studyDays,
+          part
+        });
+      }
+    });
+
+    const TOTAL_STUDY_DAYS = expandedDays.length;
+
     const daySlots = [];
-    let secIdx = 0;
-    let secDaysLeft = sections[0].days;
+    let dayPlanIndex = 0;
     let offset = 0;
 
-    while (daySlots.length < TOTAL_STUDY_DAYS && secIdx < sections.length) {
+    while (daySlots.length < TOTAL_STUDY_DAYS && dayPlanIndex < expandedDays.length) {
       const date = new Date(
         START.getFullYear(),
         START.getMonth(),
@@ -328,26 +355,19 @@
       const jsDay = date.getDay();
       if (jsDay === 0) continue;
 
-      const section = sections[secIdx];
+      const plan = expandedDays[dayPlanIndex];
       const isSessionDay = STUDY_GROUP_DAYS.includes(jsDay);
 
       daySlots.push({
-        id: `day-${daySlots.length + 1}`,
+        id: `aws-day-${daySlots.length + 1}`,
         date,
         jsDay,
         dayName: dayNames[jsDay],
-        section,
+        plan,
         isSessionDay
       });
 
-      secDaysLeft--;
-
-      if (secDaysLeft === 0) {
-        secIdx++;
-        if (secIdx < sections.length) {
-          secDaysLeft = sections[secIdx].days;
-        }
-      }
+      dayPlanIndex++;
     }
 
     function saveProgress() {
@@ -417,25 +437,33 @@
       updateProgress();
     }
 
+    function getPartLabel(plan) {
+      if (plan.studyDays === 1) return "";
+      return `Day ${plan.part} of ${plan.studyDays}`;
+    }
+
     function buildDayCell(slot) {
       if (!slot) {
         return `<div class="day-cell empty"></div>`;
       }
 
-      const { id, date, dayName, section, isSessionDay } = slot;
+      const { id, date, dayName, plan, isSessionDay } = slot;
       const isComplete = completedDays.has(id);
 
       return `
         <div class="day-cell study-day ${isSessionDay ? "session-day" : ""}">
           <div class="day-name">${dayName} ${date.getDate()}</div>
           <div
-            class="section-tag ${section.tag} ${isComplete ? "complete" : ""}"
+            class="section-tag ${plan.tag} ${isComplete ? "complete" : ""}"
             onclick="toggleDay('${id}')"
-            title="${section.title}"
+            title="${plan.title}"
           >
-            ${section.n}. ${section.title}
+            ${plan.sectionNumber}. ${plan.title}
           </div>
-          ${isSessionDay ? `<div class="session-badge">Study group</div>` : ``}
+          <div class="meta">
+            ${formatDuration(plan.totalMinutes)}${getPartLabel(plan) ? ` · ${getPartLabel(plan)}` : ""}
+          </div>
+          ${isSessionDay ? `<div class="session-badge">Review / study group</div>` : ``}
         </div>
       `;
     }
@@ -454,7 +482,7 @@
     }
 
     resetBtn.addEventListener("click", () => {
-      const confirmed = window.confirm("Reset all completed study days?");
+      const confirmed = window.confirm("Reset all completed AWS study days?");
       if (confirmed) resetProgress();
     });
 
