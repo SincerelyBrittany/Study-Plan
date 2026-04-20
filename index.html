@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>56-Hour Trading Course Roadmap</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f7f8fa;
+      color: #1f2937;
+      padding: 20px 12px 40px;
+    }
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      padding: 20px 14px 24px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    .header h2 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 8px;
+    }
+    .header p {
+      font-size: 14px;
+      color: #6b7280;
+      line-height: 1.5;
+    }
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin: 18px 0 10px;
+    }
+    button {
+      border: none;
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      background: #111827;
+      color: white;
+    }
+    button.secondary {
+      background: #e5e7eb;
+      color: #111827;
+    }
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 20px;
+      justify-content: center;
+      margin: 14px 0 1.5rem;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: #4b5563;
+    }
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .week-block {
+      margin-bottom: 1.25rem;
+    }
+    .week-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: #6b7280;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 8px;
+      padding-left: 4px;
+    }
+    .days-row {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 6px;
+    }
+    .day-cell {
+      border-radius: 10px;
+      padding: 8px 6px;
+      min-height: 90px;
+      border: 1px solid #e5e7eb;
+      background: #f9fafb;
+    }
+    .day-cell.study-day {
+      background: #ffffff;
+      border-color: #d1d5db;
+    }
+    .day-cell.session-day {
+      border: 2px solid #1D9E75;
+      background: #E1F5EE;
+    }
+    .day-cell.empty {
+      background: transparent;
+      border-color: transparent;
+    }
+    .day-name {
+      font-size: 11px;
+      color: #6b7280;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .section-tag {
+      font-size: 11px;
+      line-height: 1.4;
+      font-weight: 600;
+      border-radius: 6px;
+      padding: 4px 6px;
+      display: inline-block;
+      margin-top: 2px;
+      cursor: pointer;
+      user-select: none;
+      width: 100%;
+    }
+    .section-tag.risk  { color: #3B6D11; background: #EAF3DE; }
+    .section-tag.psych { color: #3C3489; background: #EEEDFE; }
+    .section-tag.tech  { color: #0C447C; background: #E6F1FB; }
+    .section-tag.trade { color: #633806; background: #FAEEDA; }
+    .section-tag.adv   { color: #71231D; background: #FCEBEB; }
+    .section-tag.cap   { color: #3B3B3B; background: #F1EFE8; }
+    .section-tag.complete {
+      text-decoration: line-through;
+      opacity: 0.55;
+    }
+    .session-badge {
+      font-size: 10px;
+      font-weight: 700;
+      color: #0F6E56;
+      margin-top: 6px;
+    }
+    .progress-wrap {
+      margin: 1.5rem 0 0.5rem;
+    }
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 12px;
+      color: #4b5563;
+      margin-bottom: 6px;
+      flex-wrap: wrap;
+    }
+    .progress-track {
+      height: 10px;
+      background: #f3f4f6;
+      border-radius: 999px;
+      overflow: hidden;
+      border: 1px solid #e5e7eb;
+    }
+    .progress-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: #1D9E75;
+      transition: width 0.25s ease;
+      width: 0%;
+    }
+    .footer-note {
+      font-size: 12px;
+      color: #6b7280;
+      text-align: center;
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 900px) {
+      .days-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .day-cell.empty {
+        display: none;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .wrap {
+        padding: 16px 10px 20px;
+      }
+      .header h2 {
+        font-size: 22px;
+      }
+      .days-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="header">
+      <h2>56-Hour Trading Course — 65-Study-Day Roadmap</h2>
+      <p>26 sections · 65 study days · ~84 min/day · Study groups every Tue & Thu · Sundays off · Starts Apr 15, 2026</p>
+    </div>
+
+    <div class="toolbar">
+      <button id="resetBtn" type="button">Reset Progress</button>
+      <button id="jumpTodayBtn" class="secondary" type="button">Jump to Start Week</button>
+    </div>
+
+    <div class="legend">
+      <div class="legend-item"><div class="dot" style="background:#1D9E75"></div>Study group (Tue/Thu)</div>
+      <div class="legend-item"><span class="section-tag risk" style="font-size:11px;cursor:default;width:auto">Tag</span> Risk & Psychology</div>
+      <div class="legend-item"><span class="section-tag tech" style="font-size:11px;cursor:default;width:auto">Tag</span> Charting & Tools</div>
+      <div class="legend-item"><span class="section-tag trade" style="font-size:11px;cursor:default;width:auto">Tag</span> Trading Strategies</div>
+      <div class="legend-item"><span class="section-tag adv" style="font-size:11px;cursor:default;width:auto">Tag</span> Advanced / Bonus</div>
+    </div>
+
+    <div id="calendar"></div>
+
+    <div class="progress-wrap">
+      <div class="progress-label">
+        <span>Progress tracker</span>
+        <span id="pct">0 of 65 study days complete</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="pfill"></div>
+      </div>
+    </div>
+    <p class="footer-note">Click a day to mark that study day complete. Your progress saves automatically in this browser using local storage.</p>
+  </div>
+
+  <script>
+    const sections = [
+      { n:1,  title:"How To Study",           tag:"cap",   days:1 },
+      { n:2,  title:"Risk Management",        tag:"risk",  days:2 },
+      { n:3,  title:"Trading Psychology",     tag:"psych", days:1 },
+      { n:4,  title:"Compound to Wealth",     tag:"risk",  days:1 },
+      { n:5,  title:"Foundational Course",    tag:"tech",  days:3 },
+      { n:6,  title:"Updated Charting",       tag:"tech",  days:1 },
+      { n:7,  title:"Price Action + Strat",   tag:"tech",  days:5 },
+      { n:7.5, title:"Strat-youtube",   tag:"tech",  days:5 },
+      { n:8,  title:"ETFs (Big Money)",       tag:"trade", days:5 },
+      { n:9,  title:"TradingView Setup",      tag:"tech",  days:2 },
+      { n:10, title:"TV Indicators Dive",     tag:"tech",  days:2 },
+      { n:11, title:"Catalyst Trader",        tag:"trade", days:2 },
+      { n:12, title:"Swing Trading",          tag:"trade", days:2 },
+      { n:13, title:"Chapter 27",             tag:"trade", days:1 },
+      { n:13.5, title:"Swing Trading",          tag:"trade", days:3 },
+      { n:13, title:"Chapter 26",             tag:"trade", days:1 },
+      { n:14, title:"Targeted Days",          tag:"trade", days:2 },
+      { n:15, title:"Explosive Days Pt3",     tag:"trade", days:1 },
+      { n:16, title:"Preparation",            tag:"trade", days:1 },
+      { n:17, title:"Bonus (High Risk)",      tag:"adv",   days:1 },
+      { n:18, title:"Lux Algo Screener",      tag:"tech",  days:1 },
+      { n:19, title:"Upgrades/Downgrades",    tag:"adv",   days:1 },
+      { n:20, title:"Extreme Vol Scanner",    tag:"tech",  days:1 },
+      { n:21, title:"Mid Day Opps",           tag:"trade", days:1 },
+      { n:22, title:"Utilizing Flow",         tag:"trade", days:1 },
+      { n:23, title:"Trade GPT (AI)",         tag:"adv",   days:1 },
+      { n:24, title:"Intro to Futures",       tag:"trade", days:2 },
+      { n:25, title:"Get Your S*** Together", tag:"psych", days:1 },
+      { n:26, title:"Option Contracts",       tag:"adv",   days:2 },
+      { n:27,  title:"Trading Psychology",     tag:"psych", days:2 },
+    ];
+
+    const START = new Date(2026, 3, 15);
+    const TOTAL_STUDY_DAYS = 65;
+    const STUDY_GROUP_DAYS = [2, 4];
+    const STORAGE_KEY = "tradingRoadmapCompletedDays";
+
+    const dayNames = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+    const monthNames = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+    const calendarEl = document.getElementById("calendar");
+    const pctEl = document.getElementById("pct");
+    const pfillEl = document.getElementById("pfill");
+    const resetBtn = document.getElementById("resetBtn");
+    const jumpTodayBtn = document.getElementById("jumpTodayBtn");
+
+    const saved = localStorage.getItem(STORAGE_KEY);
+    const completedDays = new Set(saved ? JSON.parse(saved) : []);
+
+    const daySlots = [];
+    let secIdx = 0;
+    let secDaysLeft = sections[0].days;
+    let offset = 0;
+
+    while (daySlots.length < TOTAL_STUDY_DAYS && secIdx < sections.length) {
+      const date = new Date(
+        START.getFullYear(),
+        START.getMonth(),
+        START.getDate() + offset
+      );
+      offset++;
+
+      const jsDay = date.getDay();
+      if (jsDay === 0) continue;
+
+      const section = sections[secIdx];
+      const isSessionDay = STUDY_GROUP_DAYS.includes(jsDay);
+
+      daySlots.push({
+        id: `day-${daySlots.length + 1}`,
+        date,
+        jsDay,
+        dayName: dayNames[jsDay],
+        section,
+        isSessionDay
+      });
+
+      secDaysLeft--;
+
+      if (secDaysLeft === 0) {
+        secIdx++;
+        if (secIdx < sections.length) {
+          secDaysLeft = sections[secIdx].days;
+        }
+      }
+    }
+
+    function saveProgress() {
+      localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify([...completedDays])
+      );
+    }
+
+    function formatShortDate(date) {
+      return `${monthNames[date.getMonth()]} ${date.getDate()}`;
+    }
+
+    function getWeekLabel(week, index) {
+      const start = week.find(Boolean);
+      const end = [...week].reverse().find(Boolean);
+      if (!start || !end) return `Week ${index + 1}`;
+      return `Week ${index + 1} · ${formatShortDate(start.date)}–${formatShortDate(end.date)}`;
+    }
+
+    function chunkIntoWeeks(slots) {
+      const weeks = [];
+      let currentWeek = new Array(7).fill(null);
+
+      slots.forEach((slot) => {
+        const dayIndex = slot.jsDay;
+        currentWeek[dayIndex] = slot;
+
+        if (dayIndex === 6) {
+          weeks.push(currentWeek);
+          currentWeek = new Array(7).fill(null);
+        }
+      });
+
+      if (currentWeek.some(Boolean)) {
+        weeks.push(currentWeek);
+      }
+
+      return weeks;
+    }
+
+    function updateProgress() {
+      const completeCount = completedDays.size;
+      const total = daySlots.length;
+      const pct = Math.round((completeCount / total) * 100);
+
+      pctEl.textContent = `${completeCount} of ${total} study days complete`;
+      pfillEl.style.width = `${pct}%`;
+    }
+
+    function toggleDay(dayId) {
+      if (completedDays.has(dayId)) {
+        completedDays.delete(dayId);
+      } else {
+        completedDays.add(dayId);
+      }
+
+      saveProgress();
+      renderCalendar();
+      updateProgress();
+    }
+
+    function resetProgress() {
+      completedDays.clear();
+      saveProgress();
+      renderCalendar();
+      updateProgress();
+    }
+
+    function buildDayCell(slot) {
+      if (!slot) {
+        return `<div class="day-cell empty"></div>`;
+      }
+
+      const { id, date, dayName, section, isSessionDay } = slot;
+      const isComplete = completedDays.has(id);
+
+      return `
+        <div class="day-cell study-day ${isSessionDay ? "session-day" : ""}">
+          <div class="day-name">${dayName} ${date.getDate()}</div>
+          <div
+            class="section-tag ${section.tag} ${isComplete ? "complete" : ""}"
+            onclick="toggleDay('${id}')"
+            title="${section.title}"
+          >
+            ${section.n}. ${section.title}
+          </div>
+          ${isSessionDay ? `<div class="session-badge">Study group</div>` : ``}
+        </div>
+      `;
+    }
+
+    function renderCalendar() {
+      const weeks = chunkIntoWeeks(daySlots);
+
+      calendarEl.innerHTML = weeks.map((week, index) => `
+        <div class="week-block" ${index === 0 ? 'id="startWeek"' : ''}>
+          <div class="week-label">${getWeekLabel(week, index)}</div>
+          <div class="days-row">
+            ${week.map(buildDayCell).join("")}
+          </div>
+        </div>
+      `).join("");
+    }
+
+    resetBtn.addEventListener("click", () => {
+      const confirmed = window.confirm("Reset all completed study days?");
+      if (confirmed) resetProgress();
+    });
+
+    jumpTodayBtn.addEventListener("click", () => {
+      const el = document.getElementById("startWeek");
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    window.toggleDay = toggleDay;
+
+    renderCalendar();
+    updateProgress();
+  </script>
+</body>
+</html>
